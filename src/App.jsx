@@ -10,6 +10,12 @@ async function fetchRandomQuote() {
 function App() {
   const [quote, setQuote] = useState(null);
 
+  const handleClick = () => {
+    fetchRandomQuote().then((quote) => {
+      setQuote(quote);
+    });
+  };
+
   useEffect(() => {
     let active = true;
     setQuote(null);
@@ -38,6 +44,7 @@ function App() {
         <button
           className="bg-black text-white hover:bg-gray-700 flex mx-auto rounded-xl py-4 px-8"
           type="button"
+          onClick={handleClick}
         >
           <svg
             className="w-6 h-6 mr-2 fill-white"
